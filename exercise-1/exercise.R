@@ -7,15 +7,17 @@ library(tidytext)
 library(dplyr)
 library(stringr)
 library(ggplot2)
+setwd('~/Documents/info201-s17/m20-text/exercise-1/')
+
 
 # Load booksinto a dataframe using the austen_books() function
-
+og.books <- austen_books()
 
 # How many books are in the dataset?
-
+num.books <- length(unique(og.books$book))
 
 # Which book has the most lines?
-
+most.lines <- og.books %>% group_by(book) %>% summarise(lines = n())
 
 # Use the unnest_tokens function to generate the full list of words
 
